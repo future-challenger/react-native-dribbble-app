@@ -7,10 +7,10 @@
 import React from 'react'
 import {
   TabBarIOS,
-  TabBarItemIOS,
   Navigator
 } from 'react-native'
 import {connect} from 'react-redux'
+import {switchTab} from '../actions'
 
 class TabsView extends React.Component {
 
@@ -23,46 +23,46 @@ class TabsView extends React.Component {
   render() {
     return (
       <TabBarIOS tintColor="#ea4c89">
-        <TabBarItemIOS
+        <TabBarIOS.Item
           title="All"
           selected={this.props.tab === 'all'}
           onPress={this.onTabSelect.bind(this, 'all')}
-          icon={require('../img/dribbble.png')}
+          icon={require('../../img/dribbble.png')}
           selectedIcon={allSelectedIcon}>
           <DribbbleAllView
             navigator={this.props.navigator}
           />
-        </TabBarItemIOS>
-        <TabBarItemIOS
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
           title="Debuts"
           selected={this.props.tab === 'debuts'}
           onPress={this.onTabSelect.bind(this, 'debuts')}
-          icon={require('../img/trophy.png')}
+          icon={require('../../img/trophy.png')}
           selectedIcon={allSelectedIcon}>
           <DebutsView
             navigator={this.props.navigator}
           />
-        </TabBarItemIOS>
-        <TabBarItemIOS
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
           title="Animated"
           selected={this.props.tab === 'animated'}
           onPress={this.onTabSelect.bind(this, 'animated')}
-          icon={require('../img/heart.png')}
+          icon={require('../../img/heart.png')}
           selectedIcon={allSelectedIcon}>
           <DebutsView
             navigator={this.props.navigator}
           />
-        </TabBarItemIOS>
-        <TabBarItemIOS
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
           title="Rebounds"
           selected={this.props.tab === 'rebounds'}
           onPress={this.onTabSelect.bind(this, 'rebounds')}
-          icon={require('../img/light.png')}
+          icon={require('../../img/light.png')}
           selectedIcon={allSelectedIcon}>
           <DebutsView
             navigator={this.props.navigator}
           />
-        </TabBarItemIOS>
+        </TabBarIOS.Item>
       </TabBarIOS>
     )
   }
@@ -71,7 +71,7 @@ class TabsView extends React.Component {
 function select(state) {
   return {
     tab: state.navigation.tab,
-
+    // notificationBadge:
   }
 }
 

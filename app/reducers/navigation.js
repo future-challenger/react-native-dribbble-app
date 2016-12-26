@@ -15,7 +15,6 @@ type State = {
 
 const initialState = {
   tab: 'All',
-  info: 'Info',
 }
 
 export default function navigation(state: State = initialState, action): State {
@@ -24,6 +23,9 @@ export default function navigation(state: State = initialState, action): State {
   }
   if(action.type === 'SWITCH_ONE') {
     return {...state, info: action.info}
+  }
+  if(action.type === 'LOGGED_OUT') {
+    return initialState
   }
   return state
 }
